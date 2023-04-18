@@ -12,18 +12,21 @@ namespace Shape.Models
         public double TotalArea(object[] arrObjects)
         {
             double area = 0;
-            Rectangle objRectangle;
-            Circle objCircle;
             foreach (var obj in arrObjects) 
             {
-                if(obj is Rectangle)
+                switch (obj)
                 {
-                    objRectangle = (Rectangle)obj;
-                    area += objRectangle.Height * objRectangle.Widht;
-                } else
-                {
-                    objCircle = (Circle)obj;
-                    area += objCircle.Radius * objCircle.Radius * Math.PI;
+                    case Rectangle objRectangle:
+                        area += objRectangle.Height * objRectangle.Widht;
+                        break;
+                    case Circle objCircle:
+                        area += objCircle.Radius * objCircle.Radius * Math.PI;
+                        break;
+                    case Triangle objTriangle:
+                        area += objTriangle.CoteLeft * objTriangle.CoteRight / objTriangle.CoteDown;
+                        break;
+                    default:
+                        break;
                 }
             }
             Console.WriteLine(area);

@@ -11,7 +11,12 @@ class Programm
         Circle circle = new();
         circle.Radius = 5;
 
-        object[] shapes = { rectangle, circle };
+        Triangle triangle = new();
+        triangle.CoteLeft = 5;
+        triangle.CoteRight = 5;
+        triangle.CoteDown = 5;
+
+        object[] shapes = { rectangle, circle, triangle };
 
         AreaCalculator areaCaclculate = new();
         areaCaclculate.TotalArea(shapes);
