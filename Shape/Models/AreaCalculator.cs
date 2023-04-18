@@ -8,13 +8,25 @@ namespace Shape.Models
 {
     public class AreaCalculator
     {
-        public double TotalArea(Rectangle[] arrRectangles)
+        public AreaCalculator() { }
+        public double TotalArea(object[] arrObjects)
         {
             double area = 0;
-            foreach (Rectangle objRectangle in arrRectangles) 
+            Rectangle objRectangle;
+            Circle objCircle;
+            foreach (var obj in arrObjects) 
             {
-                area += objRectangle.Height * objRectangle.Wight;
+                if(obj is Rectangle)
+                {
+                    objRectangle = (Rectangle)obj;
+                    area += objRectangle.Height * objRectangle.Widht;
+                } else
+                {
+                    objCircle = (Circle)obj;
+                    area += objCircle.Radius * objCircle.Radius * Math.PI;
+                }
             }
+            Console.WriteLine(area);
             return area;
         }
     }

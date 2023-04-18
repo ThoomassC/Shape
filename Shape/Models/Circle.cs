@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Shape.Models
 {
-    public class Rectangle
+    public class Circle
     {
-        public double Height { get;set; }
-        public double Widht { get;set; }
+        public double Radius { get; set; }  
     }
 }
