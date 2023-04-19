@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Shape.Models
 {
-    public class Triangle: Shape
+    public class Square: Shape
     {
-        public double Length { get; set; }
-        public double Width { get; set; }
+        public double Cote { get; set; }
 
         public override double Area()
         {
-            return Length * Width / 2;
+            return Cote * Cote;
         }
     }
 }

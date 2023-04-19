@@ -3,32 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Shape.Models;
 
 namespace Shape.Models
 {
     public class AreaCalculator
     {
         public AreaCalculator() { }
-        public double TotalArea(object[] arrObjects)
+        public double TotalArea(Shape[] arrShapes)
         {
             double area = 0;
-            foreach (var obj in arrObjects) 
+
+           foreach(var objShape in arrShapes) 
             {
-                switch (obj)
-                {
-                    case Rectangle objRectangle:
-                        area += objRectangle.Height * objRectangle.Widht;
-                        break;
-                    case Circle objCircle:
-                        area += objCircle.Radius * objCircle.Radius * Math.PI;
-                        break;
-                    case Triangle objTriangle:
-                        area += objTriangle.CoteLeft * objTriangle.CoteRight / objTriangle.CoteDown;
-                        break;
-                    default:
-                        break;
-                }
+                area += objShape.Area();
             }
+
             Console.WriteLine(area);
             return area;
         }
